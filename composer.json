@@ -1,0 +1,19 @@
+{
+  "name": "dhcc/sdk",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "",
+  "authors": [
+    {
+      "name": "Administrator",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "dhcc\\": "src"
+    }
+  },
+  "require": {
+  }
+}
