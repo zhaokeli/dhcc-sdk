@@ -4,7 +4,7 @@ namespace dhcc\opensdk;
 
 class OpenSDK
 {
-    protected $apiUrl    = '';
+    protected $apiUrl    = 'https://openapi.dhcc.wang';
     protected $appKey    = '';
     protected $appSecret = '';
 
@@ -12,11 +12,15 @@ class OpenSDK
      * OpenSDK constructor.
      * @param $appKey
      * @param $appSecret
+     * @param null $apiUrl
      */
-    public function __construct($appKey, $appSecret)
+    public function __construct($appKey, $appSecret, $apiUrl = null)
     {
         $this->appKey    = $appKey;
         $this->appSecret = $appSecret;
+        if ($apiUrl !== null) {
+            $this->apiUrl = $apiUrl;
+        }
     }
 
     /**
@@ -104,7 +108,7 @@ class OpenSDK
         }
         $ch = curl_init();
         //跳过ssl检查项。
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_URL, $conf['url']);
         if ($conf['postdata'] || $conf['post'] === true) {
             $postdata = $conf['postdata'];

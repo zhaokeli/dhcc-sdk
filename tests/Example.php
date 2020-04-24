@@ -1,11 +1,14 @@
 <?php
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-$appKey    = 'xxxxx';
-$appSecret = 'xxxxxx';
-$sdk       = new \dhcc\opensdk\OpenSDK($appKey, $appSecret);
-$params    = [
-    'title' => '端口标题'
+$appKey    = 'xxxxxxx';
+$appSecret = 'xxxxxxxxxxx';
+$apiUrl    = 'http://openapi.dhcc.wang';
+
+$sdk    = new \dhcc\opensdk\OpenSDK($appKey, $appSecret, $apiUrl);
+$params = [
+    'rank_type' => 1
 ];
-$data      = $sdk->execute('dhcc.tbk.randing', $params);
-echo $data;
+$data   = $sdk->execute('dhcc.tbk.goods.ranking', $params);
+$data   = json_decode($data, true);
+var_dump($data);
