@@ -2,7 +2,7 @@
   "name": "dhcc/sdk",
   "description": "description",
   "minimum-stability": "stable",
-  "license": "",
+  "license": "MIT",
   "authors": [
     {
       "name": "Administrator",
