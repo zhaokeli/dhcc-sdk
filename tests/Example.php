@@ -1,11 +1,13 @@
 <?php
 
+use dhcc\opensdk\OpenSDK;
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 $appKey    = 'xxxxxxx';
 $appSecret = 'xxxxxxxxxxx';
 $apiUrl    = 'http://openapi.dhcc.wang';
 
-$sdk    = new \dhcc\opensdk\OpenSDK($appKey, $appSecret, $apiUrl);
+$sdk    = new OpenSDK($appKey, $appSecret, $apiUrl);
 $params = [
     'rank_type' => 1
 ];
