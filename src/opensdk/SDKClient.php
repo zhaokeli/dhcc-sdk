@@ -2,11 +2,14 @@
 
 namespace dhcc\opensdk;
 
-class OpenSDK
+use dhcc\opensdk\request\Request;
+
+class SDKClient
 {
-    protected $apiUrl    = 'https://openapi.dhcc.wang';
-    protected $appKey    = '';
-    protected $appSecret = '';
+    protected        $apiUrl    = 'https://openapi.dhcc.wang';
+    protected        $appKey    = '';
+    protected        $appSecret = '';
+    protected static $instance  = null;
 
     /**
      * OpenSDK constructor.
@@ -14,7 +17,7 @@ class OpenSDK
      * @param $appSecret
      * @param null $apiUrl
      */
-    public function __construct($appKey, $appSecret, $apiUrl = null)
+    private function __construct($appKey, $appSecret, $apiUrl = null)
     {
         $this->appKey    = $appKey;
         $this->appSecret = $appSecret;
@@ -23,13 +26,45 @@ class OpenSDK
         }
     }
 
+    public static function getInstance($appKey, $appSecret, $apiUrl = null)
+    {
+        if (self::$instance === null) {
+            self::$instance = new static($appKey, $appSecret, $apiUrl);
+        }
+        return self::$instance;
+    }
+
     /**
+     * 执行一个api名字和参数
      * @param $apiName
      * @param array $params
      * @return array|bool|string
      */
-    public function execute($apiName, $params = [])
+    public function executeApi(string $apiName,array $params = [])
     {
+        $params         = array_merge($params, [
+            'app_key'  => $this->appKey,
+            'api_name' => $apiName,
+            'time'     => time()
+        ]);
+        $params['sign'] = $this->getSign($params);
+        return $this->sendRequest([
+            'url'      => $this->apiUrl,
+            'postdata' => $params
+        ]);
+
+    }
+
+    /**
+     * 执行一个api请求
+     * @param Request $request
+     * @return array|bool|string
+     */
+    public function executeRequest(Request $request)
+    {
+        $params  = $request->getParams();
+        $apiName = $request->getApiName();
+
         $params         = array_merge($params, [
             'app_key'  => $this->appKey,
             'api_name' => $apiName,
