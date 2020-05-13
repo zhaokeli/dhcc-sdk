@@ -1,63 +1,44 @@
 <?php
 
-namespace dhcc\opensdk;
+namespace dhcc\sdk;
 
-use dhcc\opensdk\request\Request;
+use dhcc\sdk\request\Request;
 
 class SDKClient
 {
-    protected        $apiUrl    = 'https://openapi.dhcc.wang';
-    protected        $appKey    = '';
-    protected        $appSecret = '';
-    protected static $instance  = null;
+    protected $apiUrl = 'https://openapi.dhcc.wang';
 
-    /**
-     * OpenSDK constructor.
-     * @param $appKey
-     * @param $appSecret
-     * @param null $apiUrl
-     */
-    private function __construct($appKey, $appSecret, $apiUrl = null)
-    {
-        $this->appKey    = $appKey;
-        $this->appSecret = $appSecret;
-        if ($apiUrl !== null) {
-            $this->apiUrl = $apiUrl;
-        }
-    }
+    protected $appKey = '';
 
-    public static function getInstance($appKey, $appSecret, $apiUrl = null)
-    {
-        if (self::$instance === null) {
-            self::$instance = new static($appKey, $appSecret, $apiUrl);
-        }
-        return self::$instance;
-    }
+    protected $appSecret = '';
+
+    protected static $instance = null;
 
     /**
      * 执行一个api名字和参数
-     * @param $apiName
-     * @param array $params
+     * @param  $apiName
+     * @param  array               $params
      * @return array|bool|string
      */
-    public function executeApi(string $apiName,array $params = [])
+    public function executeApi(string $apiName, array $params = [])
     {
-        $params         = array_merge($params, [
+        $params = array_merge($params, [
             'app_key'  => $this->appKey,
             'api_name' => $apiName,
-            'time'     => time()
+            'time'     => time(),
         ]);
         $params['sign'] = $this->getSign($params);
+
         return $this->sendRequest([
             'url'      => $this->apiUrl,
-            'postdata' => $params
+            'postdata' => $params,
         ]);
 
     }
 
     /**
      * 执行一个api请求
-     * @param Request $request
+     * @param  Request             $request
      * @return array|bool|string
      */
     public function executeRequest(Request $request)
@@ -65,21 +46,31 @@ class SDKClient
         $params  = $request->getParams();
         $apiName = $request->getApiName();
 
-        $params         = array_merge($params, [
+        $params = array_merge($params, [
             'app_key'  => $this->appKey,
             'api_name' => $apiName,
-            'time'     => time()
+            'time'     => time(),
         ]);
         $params['sign'] = $this->getSign($params);
+
         return $this->sendRequest([
             'url'      => $this->apiUrl,
-            'postdata' => $params
+            'postdata' => $params,
         ]);
 
     }
 
+    public static function getInstance($appKey, $appSecret, $apiUrl = null)
+    {
+        if (self::$instance === null) {
+            self::$instance = new static($appKey, $appSecret, $apiUrl);
+        }
+
+        return self::$instance;
+    }
+
     /**
-     * @param array $params
+     * @param  array    $params
      * @return string
      */
     protected function getSign($params = [])
@@ -93,12 +84,13 @@ class SDKClient
         }
         //排序后计算签名
         ksort($signParams);
+
         return md5(http_build_query($signParams) . $this->appSecret);
     }
 
     /**
      * url请求
-     * @param $opt
+     * @param  $opt
      * @return array|bool|string
      */
     protected function sendRequest($opt)
@@ -121,9 +113,9 @@ class SDKClient
             'followRedirect' => true,
             // 不需要返回内容,只会返回响应头
             'nobody'         => false,
-            // 保持会话的cookie绝对路径
+                                    // 保持会话的cookie绝对路径
             'cookiePath'     => '', // __dir__ . '/cookie',
-            // 代理ip:port
+                                    // 代理ip:port
             'proxy'          => '',
             // 代理user:pwd
             'proxyUserpwd'   => '',
@@ -156,7 +148,7 @@ class SDKClient
             curl_setopt($ch, CURLOPT_POST, 0);
         }
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $conf['timeout']); //超时
-        //自动递归的抓取重定向后的页面,0时禁止重定向
+                                                                    //自动递归的抓取重定向后的页面,0时禁止重定向
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, $conf['followRedirect']);
         //设置请求头
         $conf['requestHeader'] && curl_setopt($ch, CURLOPT_HTTPHEADER, $conf['requestHeader']);
@@ -172,7 +164,7 @@ class SDKClient
             curl_setopt($ch, CURLOPT_COOKIEFILE, $conf['cookiePath']);
         }
 
-        $conf['proxy'] && curl_setopt($ch, CURLOPT_PROXY, $conf['proxy']); //设置代理
+        $conf['proxy'] && curl_setopt($ch, CURLOPT_PROXY, $conf['proxy']);                      //设置代理
         $conf['proxyUserpwd'] && curl_setopt($ch, CURLOPT_PROXYUSERPWD, $conf['proxyUserpwd']); //设置代理账号密码
         $data = curl_exec($ch);
         //如果上面设置啦响应头信息输出到数据流可以用下面的方法取响应头中的信息
@@ -198,7 +190,23 @@ class SDKClient
             return $error;
         }
         curl_close($ch);
+
         return $data;
 
+    }
+
+    /**
+     * sdk constructor.
+     * @param $appKey
+     * @param $appSecret
+     * @param null         $apiUrl
+     */
+    private function __construct($appKey, $appSecret, $apiUrl = null)
+    {
+        $this->appKey    = $appKey;
+        $this->appSecret = $appSecret;
+        if ($apiUrl !== null) {
+            $this->apiUrl = $apiUrl;
+        }
     }
 }

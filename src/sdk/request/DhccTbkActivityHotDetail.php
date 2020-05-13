@@ -1,10 +1,9 @@
 <?php
 
-namespace dhcc\opensdk\request;
+namespace dhcc\sdk\request;
 
 class DhccTbkActivityHotDetail extends Request
 {
-
     public function getApiName(): string
     {
         // TODO: Implement getApiName() method.
@@ -14,6 +13,7 @@ class DhccTbkActivityHotDetail extends Request
     public function setActivityId(string $activityId)
     {
         $this->params['activity_id'] = $activityId;
-             return $this;
+
+        return $this;
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace dhcc\opensdk\request;
+namespace dhcc\sdk\request;
 
-use dhcc\opensdk\traits\Page;
+use dhcc\sdk\traits\Page;
 
 class DhccTbkActivityHotList extends Request
 {
@@ -13,6 +13,4 @@ class DhccTbkActivityHotList extends Request
         // TODO: Implement getApiName() method.
         return 'dhcc.tbk.activity.hot.list';
     }
-
-
 }

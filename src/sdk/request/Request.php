@@ -1,6 +1,6 @@
 <?php
 
-namespace dhcc\opensdk\request;
+namespace dhcc\sdk\request;
 
 abstract class Request
 {
@@ -9,10 +9,9 @@ abstract class Request
     ];
 
     abstract public function getApiName(): string;
-    
+
     public function getParams()
     {
         return $this->params;
     }
-
 }
