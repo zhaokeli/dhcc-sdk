@@ -13,7 +13,6 @@ use dhcc\sdk\traits\Page;
 class DhccGoodsCateList extends Request
 {
 
-    use Page;
 
     protected $params = [
         'pid' => 0

@@ -12,7 +12,6 @@ use dhcc\sdk\traits\Page;
  */
 class DhccGoodsCateTree extends Request
 {
-    use Page;
 
     protected $params = [
         'pid' => 0

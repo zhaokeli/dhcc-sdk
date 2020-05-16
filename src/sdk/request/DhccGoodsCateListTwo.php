@@ -12,7 +12,6 @@ use dhcc\sdk\traits\Page;
  */
 class DhccGoodsCateListTwo extends Request
 {
-    use Page;
 
     public function getApiName(): string
     {
