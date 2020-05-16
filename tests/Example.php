@@ -27,8 +27,8 @@ $data = $client->executeRequest($req);
 $data = json_decode($data, true);
 var_dump($data);
 
-$req = new \dhcc\sdk\request\DhccGoodsCateTree();
-$req->setPid();
+$req = new \dhcc\sdk\request\DhccTbkGoodsSearch();
+$req->setKeyword('女装');
 $data = $client->executeRequest($req);
 $data = json_decode($data, true);
 var_dump($data);
