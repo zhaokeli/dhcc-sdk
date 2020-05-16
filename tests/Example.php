@@ -26,3 +26,9 @@ $req->setRankType(DhccTbkGoodsRanking::RANK_TYPE_HOUR);
 $data = $client->executeRequest($req);
 $data = json_decode($data, true);
 var_dump($data);
+
+$req = new \dhcc\sdk\request\DhccGoodsCateTree();
+$req->setPid();
+$data = $client->executeRequest($req);
+$data = json_decode($data, true);
+var_dump($data);

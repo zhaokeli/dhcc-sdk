@@ -4,6 +4,12 @@ namespace dhcc\sdk\request;
 
 use dhcc\sdk\traits\Page;
 
+/**
+ * 淘宝各大榜单数据，1.实时榜 2.全天榜 3.热推榜
+ * 由平台人工整理，收集优质商品
+ * Class DhccTbkGoodsRanking
+ * @package dhcc\sdk\request
+ */
 class DhccTbkGoodsRanking extends Request
 {
     use Page;
