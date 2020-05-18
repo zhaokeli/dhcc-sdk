@@ -83,24 +83,24 @@ class DhccTbkGoodsSearch extends Request
 
     /**
      * 口令搜索模式
-     * @param bool $is
+     * @param bool $isTklMode
      * @return $this
      */
-    public function setTaobaokoulingSearchMode(bool $is)
+    public function setTaobaokoulingSearchMode(bool $isTklMode)
     {
-        $this->params['taobaokouling_search_mode'] = $is ? 1 : 0;
+        $this->params['taobaokouling_search_mode'] = $isTklMode ? 1 : 0;
 
         return $this;
     }
 
     /**
      * 口令转标题搜索模式
-     * @param bool $is
+     * @param bool $isTitleMode
      * @return $this
      */
-    public function setTaobaokoulingTitleMode(bool $is)
+    public function setTaobaokoulingTitleMode(bool $isTitleMode)
     {
-        $this->params['taobaokouling_title_mode'] = $is ? 1 : 0;
+        $this->params['taobaokouling_title_mode'] = $isTitleMode ? 1 : 0;
 
         return $this;
     }
@@ -119,10 +119,10 @@ class DhccTbkGoodsSearch extends Request
 
     /**
      * 起始价格
-     * @param bool $startPrice
+     * @param int $startPrice
      * @return $this
      */
-    public function setStartPrice(bool $startPrice)
+    public function setStartPrice(int $startPrice)
     {
         $this->params['start_price'] = $startPrice;
 
@@ -131,10 +131,10 @@ class DhccTbkGoodsSearch extends Request
 
     /**
      * 结束价格
-     * @param bool $endPrice
+     * @param int $endPrice
      * @return $this
      */
-    public function setEndPrice(bool $endPrice)
+    public function setEndPrice(int $endPrice)
     {
         $this->params['end_price'] = $endPrice;
 
