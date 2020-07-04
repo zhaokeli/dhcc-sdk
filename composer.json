@@ -1,14 +1,15 @@
 {
   "name": "dhcc/sdk",
-  "description": "description",
+  "description": "鼎汉开放平台,对外开放Api市场",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
-      "name": "Administrator",
-      "email": "email@example.com"
+      "name": "zkl",
+      "email": "735579768@qq.com"
     }
   ],
+   "homepage": "https://git2.dh-tech.cn/php-composer/dhcc-sdk.git",
   "autoload": {
     "psr-4": {
       "dhcc\\": "src"
