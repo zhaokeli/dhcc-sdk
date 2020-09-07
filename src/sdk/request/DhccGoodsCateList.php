@@ -1,14 +1,14 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 分类列表
  * 根据传入的父分类id，返回一维数组分类列表，支持 1=淘宝（默认）,3=京东,4=拼多多,5=本站分类
  * Class DhccGoodsCateList
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccGoodsCateList extends Request
 {

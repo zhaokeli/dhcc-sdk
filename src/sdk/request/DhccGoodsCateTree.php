@@ -1,14 +1,14 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 分类树
  * 分类标题里带缩进字符串，支持 1=淘宝（默认）,3=京东,4=拼多多,5=本站分类
  * Class DhccGoodsCateTree
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccGoodsCateTree extends Request
 {

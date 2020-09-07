@@ -1,8 +1,8 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 class DhccTbkActivityHotList extends Request
 {

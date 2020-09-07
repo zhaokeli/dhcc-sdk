@@ -1,12 +1,12 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 热搜词
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccTbkGoodsHotwords extends Request
 {

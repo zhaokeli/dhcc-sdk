@@ -1,12 +1,12 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 全网搜
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccPddGoodsSearch extends Request
 {

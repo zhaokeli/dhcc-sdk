@@ -1,8 +1,8 @@
 <?php
 
-namespace dhcc\sdk;
+namespace Dhcc\sdk;
 
-use dhcc\sdk\request\Request;
+use Dhcc\sdk\request\Request;
 
 class SDKClient
 {

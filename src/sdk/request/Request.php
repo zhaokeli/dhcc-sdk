@@ -1,6 +1,6 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
 abstract class Request
 {

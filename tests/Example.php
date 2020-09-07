@@ -1,7 +1,7 @@
 <?php
 
-use dhcc\sdk\request\DhccTbkGoodsRanking;
-use dhcc\sdk\SDKClient;
+use Dhcc\sdk\request\DhccTbkGoodsRanking;
+use Dhcc\sdk\SDKClient;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 $appKey    = 'xxxxxxxxxx';
@@ -27,7 +27,7 @@ $data = $client->executeRequest($req);
 $data = json_decode($data, true);
 var_dump($data);
 
-$req = new \dhcc\sdk\request\DhccTbkGoodsSearch();
+$req = new \Dhcc\sdk\request\DhccTbkGoodsSearch();
 $req->setKeyword('女装');
 $data = $client->executeRequest($req);
 $data = json_decode($data, true);

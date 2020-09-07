@@ -1,12 +1,12 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 店铺转链
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccTbkShopConvertUrl extends Request
 {

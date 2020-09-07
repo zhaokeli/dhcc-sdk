@@ -12,7 +12,7 @@
    "homepage": "https://git2.dh-tech.cn/php-composer/dhcc-sdk.git",
   "autoload": {
     "psr-4": {
-      "dhcc\\sdk\\": "src/sdk"
+      "Dhcc\\sdk\\": "src/sdk"
     }
   },
   "require": {

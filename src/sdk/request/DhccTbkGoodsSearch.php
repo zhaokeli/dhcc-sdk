@@ -1,12 +1,12 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 淘宝联盟搜索，结合本站人工精选商品显示最佳结果
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccTbkGoodsSearch extends Request
 {

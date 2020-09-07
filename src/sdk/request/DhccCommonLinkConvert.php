@@ -1,14 +1,14 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 智能链接转换
  * 自动识别平台链接进行转换,目前支持淘客，京东，拼多多，唯品会,接口中的参数在你知道所属平台的情况下也可以按需传参，如果识别出来的平台 没传这个平台的必传参数就会报错。
  * Class DhccCommonLinkConvert
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccCommonLinkConvert extends Request
 {

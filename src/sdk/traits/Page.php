@@ -1,6 +1,6 @@
 <?php
 
-namespace dhcc\sdk\traits;
+namespace Dhcc\sdk\traits;
 
 trait Page
 {

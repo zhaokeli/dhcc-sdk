@@ -1,12 +1,12 @@
 <?php
 
-namespace dhcc\sdk\request;
+namespace Dhcc\sdk\request;
 
-use dhcc\sdk\traits\Page;
+use Dhcc\sdk\traits\Page;
 
 /**
  * 频道商品
- * @package dhcc\sdk\request
+ * @package Dhcc\sdk\request
  */
 class DhccPddGoodsChannel extends Request
 {
