@@ -2,11 +2,10 @@
 
 namespace Dhcc\sdk;
 
-use Dhcc\sdk\request\Request;
 
 class SDKClient
 {
-    protected $apiUrl = 'https://openapi.dhcc.wang';
+    protected $apiUrl = 'https://openapi.huatuitui.com';
 
     protected $appKey = '';
 
@@ -36,29 +35,29 @@ class SDKClient
 
     }
 
-    /**
-     * 执行一个api请求
-     * @param  Request             $request
-     * @return array|bool|string
-     */
-    public function executeRequest(Request $request)
-    {
-        $params  = $request->getParams();
-        $apiName = $request->getApiName();
-
-        $params = array_merge($params, [
-            'app_key'  => $this->appKey,
-            'api_name' => $apiName,
-            'time'     => time(),
-        ]);
-        $params['sign'] = $this->getSign($params);
-
-        return $this->sendRequest([
-            'url'      => $this->apiUrl,
-            'postdata' => $params,
-        ]);
-
-    }
+    // /**
+    //  * 执行一个api请求
+    //  * @param  Request             $request
+    //  * @return array|bool|string
+    //  */
+    // public function executeRequest(Request $request)
+    // {
+    //     $params  = $request->getParams();
+    //     $apiName = $request->getApiName();
+    //
+    //     $params = array_merge($params, [
+    //         'app_key'  => $this->appKey,
+    //         'api_name' => $apiName,
+    //         'time'     => time(),
+    //     ]);
+    //     $params['sign'] = $this->getSign($params);
+    //
+    //     return $this->sendRequest([
+    //         'url'      => $this->apiUrl,
+    //         'postdata' => $params,
+    //     ]);
+    //
+    // }
 
     public static function getInstance($appKey, $appSecret, $apiUrl = null)
     {
@@ -135,7 +134,7 @@ class SDKClient
         }
         $ch = curl_init();
         //跳过ssl检查项。
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_URL, $conf['url']);
         if ($conf['postdata'] || $conf['post'] === true) {
             $postdata = $conf['postdata'];
