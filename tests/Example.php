@@ -15,6 +15,6 @@ $client = SDKClient::getInstance($appKey, $appSecret, $apiUrl);
 $params = [
     'keyword' => '女装',
 ];
-$data   = $client->executeApi('dhcc.tbk.goods.search', $params);
+$data   = $client->executeApi('dhcc.tbk.auth.token.list', $params);
 $data   = json_decode($data, true);
 var_dump($data);
